@@ -1,0 +1,30 @@
+{
+    "name": "clk/nyu-report",
+    "description": "病毒上报系统",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "clk528",
+            "email": "local.clk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "^6.2",
+        "overtrue/laravel-wechat": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "clk528\\NyuReport\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "clk528\\NyuReport\\NyuReportProvinder"
+            ]
+        }
+    }
+}
