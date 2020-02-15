@@ -3,10 +3,9 @@
 namespace clk528\NyuReport\Middleware;
 
 use Closure;
-use Encore\Admin\Middleware\Authenticate;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Auth\Middleware\Authenticate;
 
-class HikAuthenticate extends Middleware
+class HikAuthenticate extends Authenticate
 {
 
     /**
@@ -18,7 +17,7 @@ class HikAuthenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            return route('ssoLogin');
+            return route('clk.sso');
         }
     }
 }

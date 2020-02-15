@@ -12,6 +12,11 @@ class NyuReportProvinder extends ServiceProvider
         'wechat.auth' => \clk528\NyuReport\Middleware\WeChatAuthenticate::class
     ];
 
+    protected $commands = [
+        Command\ResetQuestionnaireEmailIsReadCommand::class,
+        Command\SendQuestionnaireEmailCommand::class
+    ];
+
     public function boot()
     {
 
@@ -34,5 +39,7 @@ class NyuReportProvinder extends ServiceProvider
         foreach ($this->routeMiddleware as $key => $middleware) {
             app('router')->aliasMiddleware($key, $middleware);
         }
+
+        $this->commands($this->commands);
     }
 }
