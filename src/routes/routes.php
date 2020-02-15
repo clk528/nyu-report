@@ -25,5 +25,5 @@ Route::namespace('clk528\NyuReport\Controller')->middleware('web')->group(functi
     $router->view('clk', 'h5.index')->middleware('wechat.auth');
     $router->view('wechat', 'h5.index')->middleware('wechat.auth');
 
-    $router->get('wechat/redirect', 'Wechat\WeChatController@redirect')->name('ill.wechat.redirect');
+    $router->get('wechat/redirect', 'WeChat\WeChatController@redirect')->name('ill.wechat.redirect');
 });
