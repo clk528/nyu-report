@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class NyuReportProvinder extends ServiceProvider
 {
-
     protected $routeMiddleware = [
         'hik.auth' => \clk528\NyuReport\Middleware\HikAuthenticate::class,
         'wechat.auth' => \clk528\NyuReport\Middleware\WeChatAuthenticate::class
@@ -19,12 +18,11 @@ class NyuReportProvinder extends ServiceProvider
 
     public function boot()
     {
-
-        $routes = __DIR__ . '/routes/routes.php';
-
-        if (file_exists($routes)) {
+        if (file_exists($routes = __DIR__ . '/routes/routes.php')) {
             $this->loadRoutesFrom($routes);
         }
+
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nyu-report');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

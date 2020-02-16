@@ -2,12 +2,12 @@
 
 use Illuminate\Routing\Router;
 
-// Route::get("jj5tlku.html", function () {
-//     return "test";
-// });
-Route::namespace('clk528\NyuReport\Controller')->middleware('web')->group(function (Router $router) {
-    $router->get('clk/sso', 'SsoController@toSso')->name('clk.sso');
 
+Route::namespace('clk528\NyuReport\Controller')->middleware('web')->group(function (Router $router) {
+
+    $router->view("jj5tlku.html", 'nyu-report::email.questionnaire-notice-to-specified');
+
+    $router->get('clk/sso', 'SsoController@toSso')->name('clk.sso');
 
     $router->middleware('hik.auth')->prefix('ill')->group(function (Router $router) {
         $router->get('/', 'IllController@index');
@@ -25,5 +25,5 @@ Route::namespace('clk528\NyuReport\Controller')->middleware('web')->group(functi
     $router->view('clk', 'h5.index')->middleware('wechat.auth');
     $router->view('wechat', 'h5.index')->middleware('wechat.auth');
 
-    $router->get('wechat/redirect', 'WeChat\WeChatController@redirect')->name('ill.wechat.redirect');
+    $router->get('wechat/redirect', 'Wechat\WeChatController@redirect')->name('ill.wechat.redirect');
 });
