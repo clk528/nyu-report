@@ -2,6 +2,7 @@
 
 namespace clk528\NyuReport;
 
+use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 
 class NyuReportProvinder extends ServiceProvider
@@ -18,16 +19,18 @@ class NyuReportProvinder extends ServiceProvider
 
     public function boot()
     {
-        if (file_exists($routes = __DIR__ . '/routes/routes.php')) {
+        $used = config('nyu.report_used', true);
+        
+        if (file_exists($routes = __DIR__ . '/routes/routes.php') && $used) {
             $this->loadRoutesFrom($routes);
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nyu-report');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nyu-report-views');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../database/migrations' => database_path('migrations'),
-            ], 'clk528-nyu-report-migrations');
+            ], 'nyu-report-migrations');
         }
     }
 

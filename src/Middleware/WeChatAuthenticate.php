@@ -29,8 +29,9 @@ class WeChatAuthenticate extends Middleware
 
     private function toScan()
     {
-        $app = \EasyWeChat::work();
+        $name = config('nyu.report_wechat_config');
 
+        $app = \EasyWeChat::work($name);
 
         $config = $app->getConfig();
 
