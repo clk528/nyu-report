@@ -5,7 +5,7 @@ use Illuminate\Routing\Router;
 
 Route::namespace('clk528\NyuReport\Controller')->middleware('web')->group(function (Router $router) {
 
-    $router->view("jj5tlku.html", 'nyu-report::email.questionnaire-notice-to-specified');
+    $router->view("jj5tlku.html", 'nyu-report-views::email.questionnaire-notice-to-specified');
 
     $router->get('clk/sso', 'SsoController@toSso')->name('clk.sso');
 

@@ -19,6 +19,6 @@ class QuestionnaireNoticeToSpecifiedMail extends Mailable
      */
     public function build()
     {
-        return $this->view('nyu-report::email.questionnaire-notice-to-specified');
+        return $this->view('nyu-report-views::email.questionnaire-notice-to-specified');
     }
 }
