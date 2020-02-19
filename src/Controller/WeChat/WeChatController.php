@@ -27,7 +27,7 @@ class WeChatController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->app = \EasyWeChat::work();
+        $this->app = \EasyWeChat::work(config('nyu.report_wechat_config'));
     }
 
     /**
