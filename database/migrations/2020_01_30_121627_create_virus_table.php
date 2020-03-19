@@ -21,11 +21,13 @@ class CreateVirusTable extends Migration
 
             $table->string('touch_coronavirus', 5)->comment('是否有过接触冠状病毒患者，1：是的2：无');
 
-            $table->string('go_hubei', 5)->comment('2020年1月10日之后您是否去过湖北省，1：是的2：无');
+            $table->string('go_hubei', 5)->comment('2020年3月5日之后您是否去过湖北省，或者浙江省温州市1：是的2：无');
 
             $table->string('location', 5)->comment('目前在哪儿：1：上海2：湖北省3：国内其他城市4：国外');
 
-            $table->string('back_school', 5)->comment('是否返校是途中：1：是的2无');
+            $table->string('country', 60)->nullable()->comment('所在国家');
+
+            $table->string('back_school', 5)->comment('是否返回上海途中：1：是的2无');
 
             $table->timestamps();
         });

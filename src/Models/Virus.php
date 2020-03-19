@@ -21,6 +21,8 @@ class Virus extends Model
 
         'location',
 
+        'country',
+
         'back_school'
     ];
 }
