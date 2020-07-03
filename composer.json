@@ -3,7 +3,7 @@
     "description": "病毒上报系统",
     "type": "library",
     "license": "MIT",
-    "version": "10",
+    "version": "9.0.1",
     "authors": [
         {
             "name": "clk528",
